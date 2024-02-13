@@ -1,16 +1,15 @@
-import { Navbar } from "./components/layout/Navbar"
-import { ItemListContainer } from "./components/pages/ItemListContainer"
+import ItemCountContainer from "./components/common/itemCount/ItemCountContainer";
+import { Navbar } from "./components/layout/Navbar";
+import ItemListContainer from "./components/pages/itemListContainer/ItemListContainer";
 
-
-function App() {
-
-
+const App = () => {
   return (
     <div>
       <Navbar />
-      <ItemListContainer greeting={"Hola Tarea 1"} />
-    </div>    
-  )
-}
+      <ItemListContainer />
+      <ItemCountContainer stock={3} />
+    </div>
+  );
+};
 
-export default App
+export default App;
