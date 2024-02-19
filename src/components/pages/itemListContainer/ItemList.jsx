@@ -1,10 +1,13 @@
+import { ProductCard } from '../../common/ProductCard';
 
-
-const ItemList = ({nombre , saludar}) => {
+const ItemList = ({ items }) => {
   return (
     <div>
-        <h2> {nombre} </h2>
-        <button onClick={saludar}>Saludar</button>
+      {items.map(({ id, img, title, description, price }) => {
+        return (
+          <ProductCard key={id} img={img} title={title} description={description} price={price} />
+        );
+      })}
     </div>
   );
 };
