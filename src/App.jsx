@@ -3,10 +3,10 @@ import ItemListContainer from "./components/pages/itemListContainer/ItemListCont
 
 const App = () => {
   return (
-    <div>
+    <>
       <Navbar />
       <ItemListContainer />
-    </div>
+    </>
   );
 };
 
