@@ -1,13 +1,11 @@
-import { ProductCard } from '../../common/ProductCard';
+import { ProductCard } from "../../common/ProductCard";
 
-const ItemList = ({ items }) => {
+const ItemList = ({ products }) => {
   return (
-    <div>
-      {items.map(({ id, img, title, description, price }) => {
-        return (
-          <ProductCard key={id} img={img} title={title} description={description} price={price} />
-        );
-      })}
+    <div className="flex flex-wrap">
+        {products.map((product) => (
+          <ProductCard key={product.id} {...product} />
+        ))}
     </div>
   );
 };
