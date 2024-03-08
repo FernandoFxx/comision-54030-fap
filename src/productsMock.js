@@ -1,6 +1,6 @@
 const products = [
   {
-    id: "1",
+    id: 1,
     tittle: "Tenis",
     price: 400,
     description: "Tenis Blancos",
@@ -10,7 +10,7 @@ const products = [
   },
 
   {
-    id: "2",
+    id: 2,
     tittle: "Tenis Cafe",
     price: 800,
     description: "Tenis cafe",
@@ -20,7 +20,7 @@ const products = [
   },
 
   {
-    id: "3",
+    id: 3,
     tittle: "Sueter",
     price: 1000,
     description: "Sueter verde",
@@ -30,7 +30,7 @@ const products = [
   },
 
   {
-    id: "4",
+    id: 4,
     tittle: "Saco",
     price: 1500,
     description: "Saco Cafe",

@@ -1,8 +1,10 @@
 import { useState } from "react";
 import ItemCount from "./ItemCount";
 
-const ItemCountContainer = ({ stock }) => {
+const ItemCountContainer = ({ stock, onAdd}) => {
   const [count, setCount] = useState(1);
+
+
   const sumar = () => {
     if (count < stock) {
       setCount(count + 1);
@@ -16,7 +18,7 @@ const ItemCountContainer = ({ stock }) => {
       setCount(count - 1);
     }
   };
-  return <ItemCount sum={sumar} res={restar} count={count} />;
+  return <ItemCount sum={sumar} res={restar} count={count} onAdd={onAdd} />;
 };
 
 export default ItemCountContainer;
