@@ -6,7 +6,7 @@ const ItemDetail = ({ item, onAdd }) => {
       <div className="w-64 rounded overflow-hidden shadow-lg m-10">
         <img className="w-full" src={item.img} alt="Sunset in the mountains" />
         <div className="px-6 py-4">
-          <div className="font-bold text-xl mb-2">{item.title}</div>
+          <div className="font-bold text-xl mb-2">{item.tittle}</div>
           <p className="text-gray-700 text-base">{item.description}</p>
         </div>
         <div className="px-6 pt-4 pb-2 py-4">
