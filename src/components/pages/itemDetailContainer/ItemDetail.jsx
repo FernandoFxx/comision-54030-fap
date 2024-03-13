@@ -1,6 +1,6 @@
 import ItemCountContainer from "../../common/itemCount/ItemCountContainer";
 
-const ItemDetail = ({ item, onAdd }) => {
+const ItemDetail = ({ item, onAdd, initial }) => {
   return (
     <>
       <div className="w-64 rounded overflow-hidden shadow-lg m-10">
@@ -14,7 +14,12 @@ const ItemDetail = ({ item, onAdd }) => {
             {item.price}
           </span>
         </div>
-        <ItemCountContainer stock={item.stock} onAdd={onAdd} />
+        {initial ? <h3>Ya tienes {initial} en el carrito </h3> : <h2>No tienes unidades</h2>}
+        <ItemCountContainer
+          stock={item.stock}
+          onAdd={onAdd}
+          initial={initial}
+        />
       </div>
     </>
   );

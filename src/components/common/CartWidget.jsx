@@ -3,11 +3,12 @@ import { FaOpencart } from "react-icons/fa";
 import { CartContext } from "../../context/CartContext";
 
 const CartWidget = () => {
+  const {getTotalItems} = useContext (CartContext);
 
-  const {cart} = useContext( CartContext )
+  let total = getTotalItems()
   return (
     <div className="cart">
-        <span>{ cart.length }</span>
+        <span>{ total }</span>
         <div> <FaOpencart className="icon-cart"/> </div> 
     </div>
   )

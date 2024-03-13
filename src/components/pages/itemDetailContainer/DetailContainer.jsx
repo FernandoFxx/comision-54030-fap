@@ -10,21 +10,22 @@ const DetailContainer = () => {
   const [item, setItem] = useState(null);
   const [isloading, setIsLoading] = useState(true);
 
-  const {addToCart} = useContext( CartContext )
+  const { addToCart, getTotalQuantityById } = useContext(CartContext);
+  const initial = getTotalQuantityById(+id)
 
   useEffect(() => {
     getProduct(+id).then((resp) => {
       setItem(resp);
       setIsLoading(false);
     });
-  });
+  }, [id]);
 
   const onAdd = (cantidad) => {
     let infoProducto = {
       ...item,
       quantity: cantidad,
     };
-    addToCart( infoProducto)
+    addToCart(infoProducto);
   };
 
   return (
@@ -32,7 +33,7 @@ const DetailContainer = () => {
       {isloading ? (
         <h2>Cargando Producto</h2>
       ) : (
-        <ItemDetail item={item} onAdd={onAdd} />
+        <ItemDetail item={item} onAdd={onAdd} initial={initial} />
       )}
     </>
   );
