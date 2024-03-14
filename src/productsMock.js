@@ -1,16 +1,5 @@
-const products = [
+export const products = [
   {
-    id: 1,
-    tittle: "Tenis",
-    price: 400,
-    description: "Tenis Blancos",
-    img: "https://res.cloudinary.com/dxgbxk8ft/image/upload/v1708050182/cld-sample-5.jpg",
-    stock: 12,
-    category: "tenis",
-  },
-
-  {
-    id: 2,
     tittle: "Tenis Cafe",
     price: 800,
     description: "Tenis cafe",
@@ -20,17 +9,6 @@ const products = [
   },
 
   {
-    id: 3,
-    tittle: "Sueter",
-    price: 1000,
-    description: "Sueter verde",
-    img: "https://res.cloudinary.com/dxgbxk8ft/image/upload/v1708050148/samples/people/jazz.jpg",
-    stock: 12,
-    category: "playeras",
-  },
-
-  {
-    id: 4,
     tittle: "Saco",
     price: 1500,
     description: "Saco Cafe",

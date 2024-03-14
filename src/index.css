@@ -8,6 +8,11 @@
   font-weight: 400;
 }
 
+body{
+  height: 100vh;
+  position: relative;
+}
+
 a {
   font-weight: 500;
   color: #646cff;
