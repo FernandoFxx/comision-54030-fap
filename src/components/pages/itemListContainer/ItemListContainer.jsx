@@ -1,8 +1,10 @@
 import { useState, useEffect } from "react";
-import { getProducts } from "../../../productsMock";
+
 import ItemList from "./ItemList";
 import { useParams } from "react-router-dom";
 import CardSkeleton from "../../common/CardSkeleton";
+import { db } from "../../../firebaseConfig";
+import { collection, getDocs, query, where } from "firebase/firestore";
 
 export const ItemListContainer = () => {
   const { category } = useParams();
@@ -10,27 +12,45 @@ export const ItemListContainer = () => {
   const [isloading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    setIsLoading(true);
-    getProducts().then((resp) => {
-      if (category) {
-        const productsFilter = resp.filter(
-          (product) => product.category === category
-        );
-        setProducts(productsFilter);
-      } else {
-        setProducts(resp);
-      }
-      setIsLoading(false);
-    });
+    let productsCollection = collection(db, "products");
+
+    let consulta = productsCollection;
+
+    if (category) {
+      let productsCollectionFilter = query(
+        productsCollection,
+        where("category", "==", category)
+      );
+      consulta = productsCollectionFilter;
+    }
+
+    getDocs(consulta)
+      .then((res) => {
+        let arrayLindo = res.docs.map((elemento) => {
+          return { ...elemento.data(), id: elemento.id };
+        });
+        setProducts(arrayLindo);
+      })
+      .finally(() => setIsLoading(false));
   }, [category]);
 
   if (isloading) {
     return (
       <div className="flex flex-wrap m-10">
-        <CardSkeleton />
-        <CardSkeleton />
-        <CardSkeleton />
-        <CardSkeleton />
+        {category ? (
+          <>
+            <CardSkeleton />
+            <CardSkeleton />
+          </>
+        ) : (
+          <>
+            <CardSkeleton />
+            <CardSkeleton />
+            <CardSkeleton />
+            <CardSkeleton />
+
+          </>
+        )}
       </div>
     );
   }
