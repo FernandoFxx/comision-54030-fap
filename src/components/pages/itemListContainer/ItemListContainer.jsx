@@ -23,7 +23,7 @@ export const ItemListContainer = () => {
       );
       consulta = productsCollectionFilter;
     }
-
+    
     getDocs(consulta)
       .then((res) => {
         let arrayLindo = res.docs.map((elemento) => {
@@ -48,18 +48,15 @@ export const ItemListContainer = () => {
             <CardSkeleton />
             <CardSkeleton />
             <CardSkeleton />
-
           </>
         )}
       </div>
     );
   }
-
   return (
     <>
       <ItemList products={products} />
     </>
   );
 };
-
 export default ItemListContainer;
