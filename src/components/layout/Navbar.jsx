@@ -1,8 +1,11 @@
+import { useState } from "react";
 import CartWidget from "../common/CartWidget";
-import { FaHeart } from "react-icons/fa";
+import { FaBars, FaHeart } from "react-icons/fa";
 import { Link, Outlet } from "react-router-dom";
 
 export const Navbar = () => {
+  const [toggleMenu, setToggleMenu] = useState(false);
+
   return (
     <>
       <div className="navbar">
@@ -27,8 +30,13 @@ export const Navbar = () => {
                 </button>
               </Link>
             </div>
+            <div className="btn-responsive flex items-center">
+              <button onClick={() => setToggleMenu(!toggleMenu)}>
+                <FaBars className="icon-menu" />
+              </button>
+            </div>
             <div
-              className="items-center justify-between w-full md:flex md:w-auto md:order-1"
+              className="items-center justify-between w-full md:flex md:w-auto md:order-1 max-md-hidden"
               id="navbar-sticky"
             >
               <ul className="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
@@ -66,6 +74,51 @@ export const Navbar = () => {
                   </Link>
                 </li>
               </ul>
+            </div>
+            <div
+              className={` z-40 w-full flex flex-col lg:hidden gap-12  origin-bottom mt-5 duration-700 ${
+                !toggleMenu ? "h-0, hidden" : "h-auto, block"
+              }`}
+            >
+              <div>
+                <div className="flex flex-col gap-8 font-bold tracking-wider">
+                  <ul className="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+                    <li>
+                      <Link
+                        to="/"
+                        className="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500"
+                        aria-current="page"
+                      >
+                        Todos
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        to="/category/playeras"
+                        className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+                      >
+                        Playeras
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        to="/category/pantalones"
+                        className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+                      >
+                        Pantalones
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        to="/category/tenis"
+                        className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+                      >
+                        Tenis
+                      </Link>
+                    </li>
+                  </ul>
+                </div>
+              </div>
             </div>
           </div>
         </nav>

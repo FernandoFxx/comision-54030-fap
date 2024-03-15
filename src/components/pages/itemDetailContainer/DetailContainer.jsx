@@ -4,6 +4,7 @@ import ItemDetail from "./ItemDetail";
 import { CartContext } from "../../../context/CartContext";
 import { db } from "../../../firebaseConfig";
 import { collection, doc, getDoc } from "firebase/firestore";
+import CardSkeleton from "../../common/CardSkeleton";
 
 
 const DetailContainer = () => {
@@ -32,13 +33,27 @@ const DetailContainer = () => {
     addToCart(infoProducto);
   };
 
+
+  if (isloading) {
+    return (
+      <div className="flex flex-wrap m-10">
+        {id ? (
+          <>
+            <CardSkeleton />
+          </>
+        ) : (
+          <>
+            <CardSkeleton />
+            <CardSkeleton />
+          </>
+        )}
+      </div>
+    );
+  }
+
   return (
     <>
-      {isloading ? (
-        <h2>Cargando Producto</h2>
-      ) : (
         <ItemDetail item={item} onAdd={onAdd} initial={initial} />
-      )}
     </>
   );
 };

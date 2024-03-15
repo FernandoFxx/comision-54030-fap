@@ -27,38 +27,36 @@ const CartContainer = () => {
   };
 
   return (
-    <div>
-      <div>
+    <div className="card-cart justify-evenly mt-12">
+      <div className="container w-3/5 bg-gray-200 rounded-lg">
         {cart.map((product) => {
           return (
-            <div key={product.id}>
-              <img src={product.img} alt="" />
-              <div>
-                <h2> nombre: {product.tittle} </h2>
-                <h2> cantidad: {product.quantity} </h2>
-                <h2> precio: {product.price}</h2>
-                <button onClick={() => removeById(product.id)}>Eliminar</button>
+            <div className="contenido flex justify-evenly" key={product.id}>
+              <img className="w-1/5 p-3" src={product.img} alt="" />
+              <div className="flex items-center text-center">
+                <h2 className="px-5"> Nombre <br /> {product.tittle} </h2>
+                <h2 className="px-5"> Cantidad <br /> {product.quantity} </h2>
+                <h2 className="px-5"> Precio <br /> {product.price}</h2>
               </div>
+                <button className="w-3/12 h- bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full" onClick={() => removeById(product.id)}>Eliminar</button>
             </div>
           );
         })}
       </div>
       <div>
-        <h2>Descripcion del carrito: </h2>
-        <h3>Cantidad de Productos:</h3>
-        <h3>Precio total: {total}</h3>
-        <h3>Descuento: </h3>
-        <h3>Precio final: </h3>
+
+        <h1 className="text-center my-4 text-2xl">Precio total: {total}</h1>
+
         {cart.length > 0 ? (
           <div>
-            <button onClick={limpiarAlert} >Vaciar carrito</button>
+            <button className="bg-blue-500 mx-3 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full" onClick={limpiarAlert} >Vaciar carrito</button>
             <Link to="/checkout">
-              <button>Finalizar Compra</button>
+              <button className="bg-green-500 mx-3 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full">Finalizar Compra</button>
             </Link>
           </div>
         ):(
           <Link to="/">
-            <button>Agrega Productos</button>
+            <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">Agrega Productos</button>
           </Link>
         )}
       </div>
