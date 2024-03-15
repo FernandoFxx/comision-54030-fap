@@ -1,17 +1,19 @@
-import "./App.css"
-import { Navbar } from "./Navbar"
-import { Footer } from "./Footer"
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Layout from "./components/layout/Layout";
+import CartContextProvider from "./context/CartContext";
+import { routes } from "./router/router";
+import AppRouter from "./router/AppRouter";
 
-function App() {
-
-
+const App = () => {
   return (
-    <div>
-      <Navbar />
-      <h1 className="tittle">Hola Mundo</h1>
-      <Footer />
-    </div>    
-  )
-}
+    <>
+      <BrowserRouter>
+        <CartContextProvider>
+          <AppRouter/>
+        </CartContextProvider>
+      </BrowserRouter>
+    </>
+  );
+};
 
-export default App
+export default App;

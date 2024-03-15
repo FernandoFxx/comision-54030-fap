@@ -1,4 +1,7 @@
-# React + Vite
+# ECOMMERCE CON REACT
+## Esta es una tienda en linea desarrollada con react + tailwind css + firebase
+
+![](/public/vite.svg)
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
