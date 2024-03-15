@@ -20,18 +20,14 @@
   display: flex;
   @media screen and (max-width: 768px){
     flex-direction: column;
-    margin: 15px 20px;
-  }
-}
-.card-cart .container{
-  @media screen and (max-width: 768px){
-    display: flex;
-    width: 100%;
+    margin: 20px 20px 100px;
+    
   }
 }
 
 .card-cart .container .contenido{
   align-items: center;
+  margin: 20px 0;
   @media screen and (max-width: 768px){
     flex-direction: column;
   }
@@ -42,6 +38,12 @@
   }
   .card-cart .container .contenido button{
     margin: 30px 0;
+  }
+  .card-cart .container{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    margin: 15px 0
   }
 }
 

@@ -28,10 +28,10 @@ const CartContainer = () => {
 
   return (
     <div className="card-cart justify-evenly mt-12">
-      <div className="container w-3/5 bg-gray-200 rounded-lg">
+      <div className="container w-3/5 ">
         {cart.map((product) => {
           return (
-            <div className="contenido flex justify-evenly" key={product.id}>
+            <div className="contenido flex justify-evenly bg-gray-200 rounded-lg" key={product.id}>
               <img className="w-1/5 p-3" src={product.img} alt="" />
               <div className="flex items-center text-center">
                 <h2 className="px-5"> Nombre <br /> {product.tittle} </h2>
@@ -48,7 +48,7 @@ const CartContainer = () => {
         <h1 className="text-center my-4 text-2xl">Precio total: {total}</h1>
 
         {cart.length > 0 ? (
-          <div>
+          <div className="justify-center flex">
             <button className="bg-blue-500 mx-3 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full" onClick={limpiarAlert} >Vaciar carrito</button>
             <Link to="/checkout">
               <button className="bg-green-500 mx-3 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full">Finalizar Compra</button>
