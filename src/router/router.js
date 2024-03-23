@@ -1,3 +1,4 @@
+import AboutMe from "../components/pages/about/AboutMe"
 import CartContainer from "../components/pages/cart/CartContainer"
 import { CheckoutContainer } from "../components/pages/checkout/CheckoutContainer"
 import DetailContainer from "../components/pages/itemDetailContainer/DetailContainer"
@@ -28,5 +29,10 @@ export const routes = [
         id: "checkout",
         path: "/checkout",
         Element: CheckoutContainer
+    },
+    {
+        id: "aboutME",
+        path: "/about",
+        Element: AboutMe
     },
 ]

@@ -36,7 +36,7 @@ export const ItemListContainer = () => {
 
   if (isloading) {
     return (
-      <div className="flex flex-wrap m-10">
+      <div className="flex flex-wrap justify-center m-10">
         {category ? (
           <>
             <CardSkeleton />
