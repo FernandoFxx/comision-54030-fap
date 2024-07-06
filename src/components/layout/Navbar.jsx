@@ -1,14 +1,5 @@
-import { useState } from "react";
-import CartWidget from "../common/CartWidget";
-import { FaBars, FaHeart } from "react-icons/fa";
-import { Link, Outlet } from "react-router-dom";
 
-export const Navbar = () => {
-  
-  const [toggleMenu, setToggleMenu] = useState(false);
-  return (
-    <>
-      <div className="navbar">
+{/*       <div className="navbar">
         <nav className="bg-whiste dark:bg-gray-900 w-full z-20 top-0 start-0 border-b border-gray-200 dark:border-gray-600">
           <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
             <Link
@@ -122,7 +113,84 @@ export const Navbar = () => {
             </div>
           </div>
         </nav>
+      </div> */}
+
+
+import { RiMenu5Fill } from "react-icons/ri";
+import { IoCloseSharp } from "react-icons/io5";
+import { useState } from "react";
+import { Link } from "react-router-dom";
+import CartWidget from "../common/CartWidget";
+import { FaHeart } from "react-icons/fa6";
+
+export const Navbar = () => {
+  const [click, setClick] = useState(false);
+
+  const handleClick = () => setClick(!click);
+
+  return (
+    <nav className="navbar shadow">
+      <div className="nav-container">
+        <Link to="/" className="nav-logo">
+          <span className="text-rose-400 self-center flex text-2xl font-semibold whitespace-nowrap">
+            Ropa Yadiis <FaHeart />
+          </span>
+        </Link>
+        <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
+          <Link to="/cartContainer">
+            <button
+              type="button"
+              className="text-rose-400 font-medium rounded-lg text-sm px-4 py-2 text-center"
+            >
+              <CartWidget />
+            </button>
+          </Link>
+        </div>
+        <ul className={click ? "nav-menu active" : "nav-menu"}>
+          <li className="nav-item">
+            <Link to="/" className="nav-links">
+              Todos
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link
+              to="/category/playeras"
+              className="nav-links px-3"
+            >
+              Playeras
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link
+              to="/category/pantalones"
+              className="nav-links px-3"
+            >
+              Pantalones
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link
+              to="/category/tenis"
+              className="nav-links px-3"
+            >
+              Tenis
+            </Link>
+          </li>
+        </ul>
+        <div className="nav-icon" onClick={handleClick}>
+          {/* <i className={click ? "fas fa-times" : "fas fa-bars"}></i> */}
+
+          {click ? (
+            <span className="icon">
+              <IoCloseSharp />{" "}
+            </span>
+          ) : (
+            <span className="icon">
+              <RiMenu5Fill />
+            </span>
+          )}
+        </div>
       </div>
-    </>
+    </nav>
   );
 };
